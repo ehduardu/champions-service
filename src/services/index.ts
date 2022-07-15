@@ -1,0 +1,1 @@
+export { default as GetAllChampionsService } from './GetAllChampionsService';

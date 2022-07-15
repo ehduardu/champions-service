@@ -1,0 +1,63 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "champions-service",
+    "description": "Documentação do serviço de campeões",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Internal",
+      "description": "Rotas internas"
+    },
+    {
+      "name": "Public",
+      "description": "Rotas públicas"
+    },
+    {
+      "name": "Message",
+      "description": "Rotas que utilizam sistemas de mensageria"
+    }
+  ],
+  "paths": {
+    "/champions": {
+      "get": {
+        "tags": [
+          "Public"
+        ],
+        "summary": "Lista todos os campeões e seus dados",
+        "description": "Rota que busca os dados de todos os campeões na API de League of Legends e retorna como resposta",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-api-key",
+            "required": true,
+            "description": "Chave de autorização única do usuário requisitante",
+            "schema": {
+              "type": "string",
+              "format": "idToken"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Sucesso na requisição"
+          },
+          "401": {
+            "description": "Tentativa com a x-api-key inválida",
+            "content": {
+              "application/json": {
+                "example": {
+                  "name": "Requisição negada",
+                  "message": "O requisitante não tem permissão para executar",
+                  "code": "003401",
+                  "status": 401
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

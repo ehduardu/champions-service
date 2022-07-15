@@ -1,0 +1,121 @@
+{
+	"env": {
+		"es6": true,
+		"node": true,
+		"jest": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly"
+	},
+	"parserOptions": {
+		"ecmaVersion": 2018,
+		"project": "./tsconfig.json"
+	},
+	"plugins": [
+		"@typescript-eslint"
+	],
+	"rules": {
+		"@typescript-eslint/indent": [
+			"error",
+			2,
+			{
+				"SwitchCase": 1
+			}
+		],
+		"no-unused-vars": "off",
+		"@typescript-eslint/naming-convention": [
+			"error",
+			{
+				"selector": "interface",
+				"format": [
+					"PascalCase"
+				],
+				"custom": {
+					"regex": "^I[A-Z]",
+					"match": true
+				}
+			},
+			{
+				"selector": "typeLike",
+				"format": [
+					"PascalCase",
+					"UPPER_CASE"
+				]
+			},
+			{
+				"selector": "class",
+				"format": [
+					"PascalCase"
+				]
+			}
+		],
+		"@typescript-eslint/no-unused-vars": [
+			"off",
+			{
+				"argsIgnorePattern": "^_"
+			}
+		],
+		"linebreak-style": [
+			"error",
+			"unix"
+		],
+		"quotes": [
+			"error",
+			"single"
+		],
+		"semi": "off",
+		"object-curly-spacing": [
+			"error",
+			"always"
+		],
+		"no-multiple-empty-lines": [
+			"error",
+			{
+				"max": 1
+			}
+		],
+		"no-trailing-spaces": [
+			"error",
+			{
+				"ignoreComments": true
+			}
+		],
+		"no-console": [
+			"warn",
+			{
+				"allow": [
+					"error"
+				]
+			}
+		],
+		"keyword-spacing": [
+			"error",
+			{
+				"before": true,
+				"after": true
+			}
+		],
+		"@typescript-eslint/no-var-requires": 0,
+		"@typescript-eslint/no-non-null-assertion": 0,
+		"@typescript-eslint/camelcase": 0,
+		"@typescript-eslint/member-delimiter-style": [
+			"error",
+			{
+				"multiline": {
+						"delimiter": "semi",
+						"requireLast": true
+				},
+				"singleline": {
+						"delimiter": "comma",
+						"requireLast": true
+				}
+			}
+		]
+	}
+}
