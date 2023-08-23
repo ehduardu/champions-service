@@ -42,3 +42,8 @@ type IMAGE = {
   w: number;
   h: number;
 }
+
+export enum TypeEnum {
+  FIGHTER = 'Fighter',
+  TANK = 'Tank'
+}
